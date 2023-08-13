@@ -6,7 +6,6 @@ public class enemyMovement : MonoBehaviour
 {
     public float moveDistance = 5f;
     public float moveSpeed = 2f;
-    public float waitTime = 5f;
 
     private Vector3 originalPosition;
     private Vector3 targetPosition;
@@ -38,7 +37,14 @@ public class enemyMovement : MonoBehaviour
             }
 
             movingRight = !movingRight;
-            yield return new WaitForSeconds(waitTime);
+            float randomWaitTime = Random.Range(0f, 10f);
+            float elapsedTime = 0f;
+
+            while (elapsedTime < randomWaitTime)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }

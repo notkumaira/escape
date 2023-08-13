@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class movement : MonoBehaviour
 {
@@ -20,16 +21,18 @@ public class movement : MonoBehaviour
 
     private void Update()
     {
-        if (isMoving)
+        if (!EventSystem.current.IsPointerOverGameObject() && isMoving) // Check if not over a UI element
         {
             MoveToTargetPosition();
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            StartMoving();
+            if (!EventSystem.current.IsPointerOverGameObject()) // Check if not over a UI element
+            {
+                StartMoving();
+            }
         }
-
     }
 
     private void StartMoving()
@@ -49,7 +52,6 @@ public class movement : MonoBehaviour
             isMoving = false;
         }
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {

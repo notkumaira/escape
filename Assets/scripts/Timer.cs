@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         originalPosition = transform.position;
-        targetPosition = originalPosition + new Vector3(moveDistance, 0f, 0f);
+        targetPosition = originalPosition + new Vector3(0f, moveDistance, 0f);
     }
 
     private void Update()
