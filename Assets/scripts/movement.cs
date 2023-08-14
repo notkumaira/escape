@@ -14,9 +14,12 @@ public class movement : MonoBehaviour
 
     public GameObject respawn;
 
+    private Quaternion defaultRotation; // Store the default rotation
+
     private void Start()
     {
         mainCamera = Camera.main;
+        defaultRotation = transform.rotation; // Store the default rotation on start
     }
 
     private void Update()
@@ -46,6 +49,9 @@ public class movement : MonoBehaviour
     {
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+        // Reset the rotation to the default rotation
+        transform.rotation = defaultRotation;
 
         if (transform.position == targetPosition)
         {
