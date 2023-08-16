@@ -55,4 +55,22 @@ public class moveObjects : MonoBehaviour
             isMoving = true;
         }
     }
+    
+    public void MoveUp()
+    {
+        if (!isMoving)
+        {
+            targetPosition = targetPosition + Vector3.up * moveDistance;
+            isMoving = true;
+        }
+    }
+
+    public void MoveDown()
+    {
+        if (!isMoving)
+        {
+            targetPosition = targetPosition + Vector3.down * moveDistance;
+            isMoving = true;
+        }
+    }
 }
