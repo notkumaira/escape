@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class scaleDoor : MonoBehaviour
 {
-    public float moveDistance = 5f; // Distance to move the door
-    public float moveSpeed = 2f;    // Speed of movement
+    public float moveDistance = 5f;
+    public float moveSpeed = 2f; 
 
     public GameObject door;
 

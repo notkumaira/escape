@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class extra : MonoBehaviour
 {
-    public string sceneToLoad; // Name of the scene to load
+    public string sceneToLoad;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,5 +13,15 @@ public class extra : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToLoad);
         }
+    }
+
+    public void LoadScreenNigga()
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

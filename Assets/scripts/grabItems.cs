@@ -8,13 +8,10 @@ public class grabItems : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the colliding GameObject is the specific parentObject
         if (collision.gameObject == parentObject)
         {
-            // Make this GameObject a child of the parentObject
             transform.SetParent(parentObject.transform, true);
 
-            // Optionally deactivate the child GameObject
             if (setOffChild)
             {
                 gameObject.SetActive(false);

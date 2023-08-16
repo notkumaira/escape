@@ -14,24 +14,24 @@ public class movement : MonoBehaviour
 
     public GameObject respawn;
 
-    private Quaternion defaultRotation; // Store the default rotation
+    private Quaternion defaultRotation;
 
     private void Start()
     {
         mainCamera = Camera.main;
-        defaultRotation = transform.rotation; // Store the default rotation on start
+        defaultRotation = transform.rotation;
     }
 
     private void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() && isMoving) // Check if not over a UI element
+        if (!EventSystem.current.IsPointerOverGameObject() && isMoving)
         {
             MoveToTargetPosition();
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (!EventSystem.current.IsPointerOverGameObject()) // Check if not over a UI element
+            if (!EventSystem.current.IsPointerOverGameObject()) 
             {
                 StartMoving();
             }
@@ -41,7 +41,7 @@ public class movement : MonoBehaviour
     private void StartMoving()
     {
         targetPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.z = transform.position.z; // Keep the same Z position as the GameObject
+        targetPosition.z = transform.position.z; 
         isMoving = true;
     }
 
@@ -50,7 +50,6 @@ public class movement : MonoBehaviour
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
-        // Reset the rotation to the default rotation
         transform.rotation = defaultRotation;
 
         if (transform.position == targetPosition)
@@ -63,7 +62,6 @@ public class movement : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            // Teleport the player to the respawn point's position
             transform.position = respawn.transform.position;
         }
     }

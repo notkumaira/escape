@@ -31,7 +31,6 @@ public class moveObjects : MonoBehaviour
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
-        // If the object has reached the target position, stop moving
         if (transform.position == targetPosition)
         {
             isMoving = false;

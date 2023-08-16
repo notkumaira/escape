@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class openDoorII : MonoBehaviour
 {
-    public float moveDistance = 5f; // Distance to move the door
-    public float moveSpeed = 2f; // Speed of movement
+    public float moveDistance = 5f;
+    public float moveSpeed = 2f;
 
     private Vector3 originalPosition;
     private Vector3 targetPosition;
     private Vector3 closedPosition;
     private bool isOpen = false;
 
-    public Button openButton; // Reference to the UI button that opens the door
+    public Button openButton;
 
     private void Start()
     {
@@ -28,12 +28,10 @@ public class openDoorII : MonoBehaviour
     {
         if (isOpen)
         {
-            // Move the door to the target position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
         else
         {
-            // Move the door back to its original position
             transform.position = Vector3.MoveTowards(transform.position, closedPosition, moveSpeed * Time.deltaTime);
         }
     }

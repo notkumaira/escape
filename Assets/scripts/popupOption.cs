@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class popupOption : MonoBehaviour
 {
-    public Transform targetObject; // Assign the target object in the Inspector
-    public GameObject options; // Assign the "options" GameObject in the Inspector
+    public Transform targetObject;
+    public GameObject options; 
 
     public float activationDistance = 5f;
 
