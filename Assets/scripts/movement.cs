@@ -3,66 +3,26 @@ using UnityEngine.EventSystems;
 
 public class movement : MonoBehaviour
 {
-    private Camera mainCamera;
-    private bool isMoving;
-    private Vector3 targetPosition;
+    public float moveSpeed = 5f;
 
-    private bool isClimbing;
-
-    public float movementSpeed = 5f;
-    public float climbSpeed = 2f;
-
-    public GameObject respawn;
-
-    private Quaternion defaultRotation;
+    private Rigidbody2D rb;
+    private Quaternion initialRotation;
 
     private void Start()
     {
-        mainCamera = Camera.main;
-        defaultRotation = transform.rotation;
+        rb = GetComponent<Rigidbody2D>();
+        initialRotation = transform.rotation;
     }
 
     private void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() && isMoving)
-        {
-            MoveToTargetPosition();
-        }
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!EventSystem.current.IsPointerOverGameObject()) 
-            {
-                StartMoving();
-            }
-        }
-    }
+        Vector2 movement = new Vector2(horizontalInput, verticalInput) * moveSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
 
-    private void StartMoving()
-    {
-        targetPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.z = transform.position.z; 
-        isMoving = true;
-    }
-
-    private void MoveToTargetPosition()
-    {
-        float step = movementSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-
-        transform.rotation = defaultRotation;
-
-        if (transform.position == targetPosition)
-        {
-            isMoving = false;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("enemy"))
-        {
-            transform.position = respawn.transform.position;
-        }
+        // Reset rotation to initial rotation
+        transform.rotation = initialRotation;
     }
 }
