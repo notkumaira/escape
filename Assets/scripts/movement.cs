@@ -4,13 +4,12 @@ using UnityEngine.EventSystems;
 public class movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public GameObject respawn;
 
-    private Rigidbody2D rb;
     private Quaternion initialRotation;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         initialRotation = transform.rotation;
     }
 
@@ -19,10 +18,19 @@ public class movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(horizontalInput, verticalInput) * moveSpeed * Time.deltaTime;
-        rb.MovePosition(rb.position + movement);
+        Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
+
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
         // Reset rotation to initial rotation
         transform.rotation = initialRotation;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("enemy"))
+        {
+            transform.position = respawn.transform.position;
+        }
     }
 }
