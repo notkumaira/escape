@@ -41,7 +41,7 @@ public class KeyOpensDoor : MonoBehaviour
 
     private void MoveDoor()
     {
-        door.transform.Translate(Vector3.up * 7f);
+        door.transform.Translate(Vector3.up * 10f);
     }
 
     private void DisplayMessage()
