@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class extra : MonoBehaviour
 {
     public string sceneToLoad;
+    public GameObject pause;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,5 +24,17 @@ public class extra : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Pause()
+    {
+        pause.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        pause.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

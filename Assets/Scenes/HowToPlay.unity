@@ -267,7 +267,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 36ebc4004778d434984a54c33e365faa, type: 3}
-    m_FontSize: 104
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -278,9 +278,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Use arrow keys to move, etc.
+  m_Text: 'Use arrow keys to move.
 
-    (To be edited)'
+    Push Crates onto a scale.
+
+    Race against
+    the clock and make it through before the door closes.
+
+    Move walls
+
+    Find
+    keys
+
+    Solve puzzles
+
+    Escape...'
 --- !u!222 &111231825
 CanvasRenderer:
   m_ObjectHideFlags: 0
