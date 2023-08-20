@@ -30,7 +30,7 @@ public class scaleDoor : MonoBehaviour
             shortestDistance = Mathf.Min(shortestDistance, distanceToCrate);
         }
 
-        if (shortestDistance <= 1.1f)
+        if (shortestDistance <= 2f)
         {
             isOpen = true;
         }

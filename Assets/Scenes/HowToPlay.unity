@@ -267,7 +267,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 36ebc4004778d434984a54c33e365faa, type: 3}
-    m_FontSize: 80
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -285,12 +285,14 @@ MonoBehaviour:
     Race against
     the clock and make it through before the door closes.
 
-    Move walls
+    Move walls.
 
-    Find
-    keys
+    Avoid
+    Enemies.
 
-    Solve puzzles
+    Find keys.
+
+    Solve puzzles.
 
     Escape...'
 --- !u!222 &111231825
@@ -416,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: lvlone
+  pause: {fileID: 0}
 --- !u!1 &538943331
 GameObject:
   m_ObjectHideFlags: 0
